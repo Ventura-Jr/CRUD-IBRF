@@ -5,7 +5,7 @@ Outros acrônimos podem ser usados para definir as mesmas operações: ABCD: Add
 ![image](https://user-images.githubusercontent.com/122493018/236079330-0227159e-a406-4fbb-bc46-d291990e659a.png)
 
 # Desenvolvimento
-O To Do List foi desenvolvido utilizando as seguintes tecnologias:
+O CRUD foi desenvolvido utilizando as seguintes tecnologias:
 <div>
 <img align="center" alt="Ventura-HTML" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg">
 <img align="center" alt="Ventura-Js" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg">
