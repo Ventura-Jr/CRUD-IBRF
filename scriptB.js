@@ -15,7 +15,7 @@ class Product {
                 price: this.price,
             });
             addProductToTable(response.data);
-        } catch (error){
+        } catch (error) {
             console.error('Erro ao criar o produto:', error)
         }
 
@@ -27,7 +27,7 @@ class Product {
                 name: this.name,
                 price: this.price,
             });
-        }catch (error) {
+        } catch (error) {
             console.error(`Erro ao modificar o produto ${this.id}:`, error)
         }
     }
@@ -51,17 +51,13 @@ class Product {
 
 }
 
-
-
-
-
 document.getElementById("product-form").addEventListener('submit', async (event) => {
     event.preventDefault();
     const id = document.getElementById("productId").value;
     const name = document.getElementById("productName").value;
     const price = document.getElementById("productPrice").value;
     // alert(JSON.stringify({id, name, price}, null, 2))
-    const product = new Product (id, name, price);
+    const product = new Product(id, name, price);
     if (id) {
         await product.update();
     } else {
