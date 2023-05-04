@@ -24,6 +24,14 @@ async function createProduct(product) {
     }
 }
 
+async function updateProduct(product) {
+    try {
+        await axios.put(`${url}/${product.id}`, product);
+    } catch (error) {
+        console.error(`Erro ao modificar o produto ${id}:`, error)
+    }
+}
+
 async function fetchProducts() {
     try {
         const response = await axios.get(url);
@@ -31,6 +39,20 @@ async function fetchProducts() {
     } catch (error) {
         console.error('Erro ao carregar os produtos:', error);
     }
+}
+
+async function deleteProduct(id) {
+    try {
+        await axios.delete(`${url}/${id}`)
+    } catch (error) {
+        console.error(`Erro ao carregar o produto ${id}:`, error)
+    }
+}
+
+function updateForm(id, name, price) {
+    document.getElementById("productId").value = id;
+    document.getElementById("productName").value = name;
+    document.getElementById("productPrice").value = price;
 }
 
 function addProductToTable({ id, name, price }) {
@@ -46,6 +68,18 @@ function addProductToTable({ id, name, price }) {
         celula.textContent = coluna;
         linha.appendChild(celula);
     }
+
+    const updateButton = document.createElement("button");
+    updateButton.textContent = "Editar";
+    updateButton.classList.add("btn", "btn-success", "mr-2");
+    updateButton.addEventListener("click", () => updateForm(id, name, price));
+    linha.appendChild(updateButton);
+
+    const deleteButton = document.createElement("button");
+    deleteButton.textContent = "Excluir";
+    deleteButton.classList.add("btn", "btn-danger");
+    deleteButton.addEventListener("click", () => deleteProduct(id));
+    linha.appendChild(deleteButton);
 
     productTable.querySelector("tbody").appendChild(linha);
 
